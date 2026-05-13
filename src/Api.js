@@ -2,7 +2,7 @@
 
 export const NewsArticles = async (title, setArticles, setSelected, setGenerated) => {
    try {
-    const url = `http://localhost:4000/news/?title=${encodeURIComponent(title)}`;
+    const url = `https://ai-news-studio-server.onrender.com/api/news/?title=${encodeURIComponent(title)}` || `http://localhost:4000/news/?title=${encodeURIComponent(title)}`;
     const res = await fetch(url);
 
     if(!res.ok) throw new Error("Failed to fetch the articles");
@@ -22,7 +22,7 @@ export const NewsArticles = async (title, setArticles, setSelected, setGenerated
 export const generateArticles = async(selectedArticles,setGenerated)=>{
    
     try {
-        const url = `http://localhost:5000/`
+        const url = `https://ai-news-studio-server.onrender.com/api/ai/`
         const res = await fetch(url,
             {
                 method : "POSt",
